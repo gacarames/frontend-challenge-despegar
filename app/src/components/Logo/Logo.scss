@@ -1,17 +1,11 @@
 @import '../../sass/shared';
 
 .logo {
-  width: 44px;
-  height: 32px;
-  background-image: url(/logo__small@2x.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  margin: 8px 0;
+  font-size: 18px;
+  font-weight:500;
+  margin: 6px 0; 
 
   @media screen and (min-width: $medium-breackpoint) {
-    height: 34px;
-    width: 134px;
-    background-image: url(/logo__large_plus.png);
+    font-size: 24px;
   }
 }

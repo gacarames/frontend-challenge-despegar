@@ -1,13 +1,12 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-
-import Thumbnail from "../Thumbnail/Thumbnail";
-import Price from "../Price/Price";
-import Shipping from "../Shipping/Shipping";
+/* import Thumbnail from "../Thumbnail/Thumbnail"; */
+/* import Price from "../Price/Price"; */
+/* import Shipping from "../Shipping/Shipping"; */
 import './ResultItem.scss';
 
 function ResultItem(props) {
-  const { id, title, picture, price, free_shipping } = props.itemData
+  const { id, name } = props.itemData
   return (
     <article className="item">
       <Link
@@ -18,11 +17,11 @@ function ResultItem(props) {
         }}
       >
         <div className="item__wrapper">
-          <Thumbnail src={picture} />
+          {/* <Thumbnail src={picture} /> */}
           <div className="item__description-container">
-            <h2 className="item__title">{title}</h2>
-            <Price price={price} />
-            {free_shipping && <Shipping />}
+            <h2 className="item__title">{name}</h2>
+            {/* <Price price={price} /> */}
+            {/* free_shipping && <Shipping /> */}
           </div>
 
         </div>
