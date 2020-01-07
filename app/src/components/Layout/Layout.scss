@@ -31,6 +31,7 @@
   }
 
   &--four-cols {
+    
     grid-template-columns: repeat(2, 1fr);
 
     @media screen and (min-width: $medium-breackpoint) {

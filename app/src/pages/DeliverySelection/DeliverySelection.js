@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+/* import { useParams } from "react-router-dom"; */
 /* import useFetch from "../../hooks/useFetch"; */
 import "./DeliverySelection.scss";
 /* import { HOST } from "../../api";
 import Loading from "../../components/Loading/Loading"; */
-import { SectionWrapper } from "../../components/SectionWrapper/SectionWrapper";
+import { Section } from "../../components/Layout/Layout";
 import Search from "../../components/Search/Search";
 import OptionsList from "../../components/OptionsList/OptionsList";
 import "./DeliverySelection.scss";
@@ -12,7 +12,7 @@ import "./DeliverySelection.scss";
 function DeliverySelection() {
   const [boxSearchQuery, setBoxSearchQuery] = useState("");
 
-  const { id } = useParams();
+  /* const { id } = useParams(); */
 
   /* const { data, loading, error } = useFetch(`${HOST}/api/restaurants/`); */
 
@@ -30,14 +30,16 @@ function DeliverySelection() {
     console.log(error);
   } */
 
+  console.log(boxSearchQuery)
+
   return (
     <>
-      <SectionWrapper>
+      <Section>
         <Search callbackFromParent={searchQueryCallback} />
-      </SectionWrapper>
-      <SectionWrapper section="detail" styled="card" layout="four-cols">
+      </Section>
+      <Section section="detail" styled="card" layout="four-cols">
         <OptionsList />
-      </SectionWrapper>
+      </Section>
     </>
   );
 }
