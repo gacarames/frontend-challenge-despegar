@@ -1,0 +1,47 @@
+.spinner {
+  text-align: center;
+  padding: 8px;
+
+  > div {
+    width: 6px;
+    height: 6px;
+    margin: 0 6px;
+    background-color: #999;
+
+    border-radius: 100%;
+    display: inline-block;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  }
+
+  &__dot1 {
+    animation-delay: -0.32s;
+  }
+
+  &__dot2 {
+    animation-delay: -0.16s;
+  }
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%,
+  80%,
+  100% {
+    -webkit-transform: scale(0);
+  }
+  40% {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes sk-bouncedelay {
+  0%,
+  80%,
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  40% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}

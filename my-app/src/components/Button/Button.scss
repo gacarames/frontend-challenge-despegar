@@ -1,0 +1,37 @@
+@import "../../sass/shared";
+
+.button {
+  display: block;
+  width: 100%;
+  margin-top: 18px;
+
+  &__action {
+    border-radius: 4px;
+    border: 0;
+    cursor: pointer;
+    display: block;
+    font-size: 18px;
+    font-weight: 300;
+    margin: 0;
+    padding: 12px;
+    text-align: center;
+    width: 100%;
+    appearance: none;
+
+    &--primary {
+      font-size: 18px;
+      font-weight: 400;
+      color: #fff;
+      background: $secondary-brand-color;
+      border: 1px solid;
+    }
+
+    &--primary-outline {
+      font-size: 18px;
+      font-weight: 400;
+      color: $secondary-brand-color;
+      background: #fff;
+      border: 1px solid $secondary-brand-color;
+    }
+  }
+}

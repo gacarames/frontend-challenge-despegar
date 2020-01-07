@@ -1,0 +1,46 @@
+@import "../../sass/shared";
+
+.item {
+  width: 100%;
+  border-bottom: 1px solid #f5f5f5;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    padding: 12px 0;
+  }
+
+  &__link {
+    color: $primary-font-color;
+    text-decoration: none;
+  }
+
+  &__description-container {
+    width: 100%;
+    padding-right: 24px;
+    margin-top: 12px;
+
+    @media screen and (min-width: $medium-breackpoint) {
+      padding-right: 32px;
+      margin-top: 24px;
+    }
+  }
+
+  &__title {
+    color: $primary-font-color;
+    font-size: 16px;
+    line-height: 22px;
+    max-height: 54px;
+    overflow: hidden;
+    font-weight: 400;
+    margin: 0 0 10px;
+
+    @media screen and (min-width: $medium-breackpoint) {
+      font-size: 20px;
+      line-height: 26px;
+    }
+  }
+}

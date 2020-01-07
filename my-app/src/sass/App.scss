@@ -1,0 +1,21 @@
+@import "./shared";
+
+* {
+  outline: none;
+}
+
+#root {
+  height: 100%;
+  min-height: 100vh;
+  background-color: #ebebeb;
+  padding-bottom: 32px;
+}
+
+.card {
+  background-color: #fff;
+  box-shadow: $static-shadow;
+
+  @media screen and (min-width: $medium-breackpoint) {
+    border-radius: $radius;
+  }
+}

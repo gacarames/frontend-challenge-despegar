@@ -1,0 +1,15 @@
+@import "../../sass/shared";
+
+.go-back {
+  color: #111;
+  background: none;
+  border: none;
+  padding-left: 0;
+  padding-right: 12px;
+  margin-right: 12px;
+  border-right: 1px solid #cfcfcf;
+
+  @media screen and (min-width: $medium-breackpoint) {
+    display: inline;
+  }
+}
