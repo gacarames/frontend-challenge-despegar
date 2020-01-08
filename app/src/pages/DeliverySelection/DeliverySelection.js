@@ -32,7 +32,7 @@ function DeliverySelection() {
     if (data && (queryFilterName || queryFilterDescription)) {
       filterList = data.filter((item) => {
         return (
-          item.name.toLowerCase().includes(queryFilterName.toLowerCase()) && item.address.toLowerCase().includes(queryFilterDescription.toLowerCase())
+          item.name.toLowerCase().includes(queryFilterName.toLowerCase()) && item.about.toLowerCase().includes(queryFilterDescription.toLowerCase())
         )
       })
     } else {

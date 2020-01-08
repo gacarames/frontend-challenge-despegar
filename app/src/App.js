@@ -6,6 +6,8 @@ import NavBar from "./components/NavBar/NavBar";
 import BreadcrumbList from "./components/BreadcrumbList/BreadcrumbList";
 
 import DeliverySelection from "./pages/DeliverySelection/DeliverySelection";
+import OrderCreation from "./pages/OrderCreation/OrderCreation";
+
 import NoMatch from "./pages/NoMatch/NoMatch";
 
 function App() {
@@ -41,6 +43,7 @@ function App() {
           </Route>
 
           <Route exact path="/order-creation/:id">
+            <OrderCreation/>
           </Route>
 
           <Route path="/data-deliver">{/* <DetailProduct /> */}</Route>
