@@ -4,15 +4,15 @@ import GoBack from "../GoBack/GoBack";
 import "./BreadcrumbList.scss";
 
 function BreadcrumbList(props) {
-  let { categories } = props;
+  let { stages } = props;
 
   return (
     <div className="breadcrumb">
       <GoBack />
-      {categories &&
-        categories.map(item => {
+      {stages &&
+        stages.map(item => {
           return (
-            <Link to="/" key={item.id} className="breadcrumb__link">
+            <Link to={item.path} key={item.id} className="breadcrumb__link">
               {item.name}
             </Link>
           );

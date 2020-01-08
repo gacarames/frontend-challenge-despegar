@@ -3,10 +3,11 @@
 .nav {
   background-color: $primary-brand-color;
   width: 100%;
-  
+
   &__wrapper {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
     padding: 0 52px 0 10px;
 
@@ -16,7 +17,7 @@
 
     @media screen and (min-width: $large-breackpoint) {
       max-width: 960px;
-      margin: auto
+      margin: auto;
     }
   }
 }

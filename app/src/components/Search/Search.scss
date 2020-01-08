@@ -3,7 +3,7 @@
 .search {
   padding: 8px 0;
   width: 100%;
-  
+
   ::placeholder {
     color: #aaa;
     font-weight: 400;
@@ -11,8 +11,7 @@
 
   .form {
     display: flex;
-    flex-direction: row-reverse;
-    margin-left: 10px;
+    flex-direction: column;
     box-shadow: $static-shadow;
     border-radius: 2px;
     overflow: hidden;

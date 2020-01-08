@@ -3,45 +3,44 @@ import "./Search.scss";
 /* import { useHistory } from "react-router-dom"; */
 
 function Search(props) {
-  const [submitSearch, setSubmitSearch] = useState("");
   /* let history = useHistory(); */
 
-  function handleChangeValue(event) {
+  const [filterForName, setFilterForName] = useState("");
+  const [filterForDescription, setFilterForDescription] = useState("");
+
+  function handleChangeValueName(event) {
     let { value } = event.target;
-    setSubmitSearch(value);
+    setFilterForName(value);
+    props.callbackParentToGetName(value)
   }
 
-  /* function handleSubmit(event) {
-    let idRegex = /([A-Z]{3})+(\d+$)/g
-    if (submitSearch.match(idRegex)) {
-      history.push(`/items/${submitSearch}`)
-    } else {
-      history.push(`/items?search=${submitSearch}`)
-    }
-    event.preventDefault();
-  } */
+  function handleChangeValueDescription(event) {
+    let { value } = event.target;
+    setFilterForDescription(value);
+    props.callbackParentToGetDescription(value)
+  }
 
   return (
     <div className="search">
-      <form /* onSubmit={handleSubmit} */ className="form">
-        <label htmlFor="nombre">Nombre</label>
-        <input
-          type="text"
-          value={submitSearch}
-          onChange={handleChangeValue}
-          placeholder="Estoy buscando..."
-          className="form__input"
-        />
-
-        <label htmlFor="descripcion">Description</label>
-        <input
-          type="text"
-          value={submitSearch}
-          onChange={handleChangeValue}
-          placeholder="Estoy buscando..."
-          className="form__input"
-        />
-        <input type="submit" value="" className="form__submit" />
+      <form className="form">
+        <div className="form__group">
+          <label htmlFor="nombre">Nombre</label>
+          <input
+            type="text"
+            value={filterForName}
+            onChange={handleChangeValueName}
+            className="form__input"
+          />
+        </div>
+        <div className="form__group">
+          <label htmlFor="descripcion">Description</label>
+          <input
+            type="text"
+            value={filterForDescription}
+            onChange={handleChangeValueDescription}
+            className="form__input"
+          />
+        </div>
       </form>
     </div>
   );

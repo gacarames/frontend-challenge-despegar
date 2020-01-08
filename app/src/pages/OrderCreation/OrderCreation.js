@@ -1,24 +1,26 @@
-import React from "react";
+import React from 'react';
 import { useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
-import "./DetailProduct.scss";
 import { HOST } from "../../api";
+import { Route } from "react-router-dom";
+import './OrderCreation.scss';
+
 import Loading from "../../components/Loading/Loading";
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import {
-  SectionWrapper,
+  Section,
   Column
-} from "../../components/SectionWrapper/SectionWrapper";
+} from "../../components/Layout/Layout";
 import Image from "../../components/Image/Image";
 import ShortDescription from "../../components/ShortDescription/ShortDescription";
 import Button from "../../components/Button/Button";
 import ProductDescription from "../../components/ProductDescription/ProductDescription";
 
-function DetailProduct() {
+function OrderCreation() {
 
   const { id } = useParams();
 
-  const { data, loading, error } = useFetch(`${HOST}/api/items/${id}`);
+  const { data, loading, error } = useFetch(`${HOST}/api/restaurants/${id}`);
 
   const { item } = data;
 
@@ -32,11 +34,11 @@ function DetailProduct() {
 
   return (
     <>
-      <SectionWrapper>
+      <Section>
         <Breadcrumb category={item.category} />
-      </SectionWrapper>
+      </Section>
 
-      <SectionWrapper section="detail" styled="card" layout="two-cols">
+      <Section section="detail" styled="card" layout="two-cols">
         <Column>
           <Image picture={item.picture} block="detail" />
         </Column>
@@ -49,9 +51,13 @@ function DetailProduct() {
         <Column>
           <ProductDescription content={item.description} />
         </Column>
-      </SectionWrapper>
+      </Section>
     </>
   );
 }
 
-export default DetailProduct;
+OrderCreation.propTypes = {};
+
+OrderCreation.defaultProps = {};
+
+export default OrderCreation;

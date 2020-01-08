@@ -1,1 +1,33 @@
-.BreadcrumbList {}
+@import "../../sass/shared";
+
+.breadcrumb {
+  display: block;
+
+  &__link {
+    color: $secondary-font-color;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+    white-space: nowrap;
+    margin: 0 0 2px;
+
+    &::after {
+      content: "";
+      width: 10px;
+      height: 10px;
+      display: inline-block;
+      background: url(/right-chevron.svg) no-repeat center;
+      background-size: contain;
+      margin: 0 6px;
+    }
+
+    &:last-of-type {
+      &::after {
+        content: "";
+        width: 0;
+        height: 0;
+      }
+    }
+  }
+}

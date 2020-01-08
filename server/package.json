@@ -1,6 +1,6 @@
 {
-  "name": "examen-tecnico-almundo",
-  "version": "1.0.0",
+  "name": "server-challenge-despegar",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -24,6 +24,6 @@
     "underscore": "^1.9.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.1"
+    "nodemon": "^2.0.2"
   }
 }

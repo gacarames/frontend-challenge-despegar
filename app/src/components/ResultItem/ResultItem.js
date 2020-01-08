@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import './ResultItem.scss';
 
 function ResultItem(props) {
-  const { id, name } = props.itemData
+  const { id, name, address } = props.itemData
   return (
     <article className="item">
       <Link
@@ -20,6 +20,7 @@ function ResultItem(props) {
           {/* <Thumbnail src={picture} /> */}
           <div className="item__description-container">
             <h2 className="item__title">{name}</h2>
+            <p>{address}</p>
             {/* <Price price={price} /> */}
             {/* free_shipping && <Shipping /> */}
           </div>
