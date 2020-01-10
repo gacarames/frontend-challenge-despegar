@@ -1,22 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Tabs, Tab, TabPanel, TabList } from "react-web-tabs";
 import "./MenuList.scss";
-/* import "react-web-tabs/dist/react-web-tabs.css"; */
+import "react-web-tabs/dist/react-web-tabs.css";
 import MenuItem from "../MenuItem/MenuItem";
 
 function MenuList(props) {
+
+  /* const [listSelectedItems, setListSelectedItems] = useState([]); */
+
   const { menu } = props;
 
   let categorys = menu.map(opt => opt.category_food)
 
   let tabsList = [...new Set(categorys)].sort()
 
-  console.log(tabsList)
-  
+  console.log(menu)
+
   return (
     <Tabs
-      defaultTab="pizza"
+      defaultTab={tabsList[0]}
       onChange={tabId => {
         console.log(tabId);
       }}
@@ -24,10 +27,10 @@ function MenuList(props) {
     >
       <TabList>
         {tabsList &&
-          tabsList.map((type, index) => {
+          tabsList.map((type) => {
             return (
               <Tab
-                key={index}
+                key={type}
                 tabFor={type}
                 className="tabs__item-list"
               >
@@ -36,21 +39,25 @@ function MenuList(props) {
             );
           })}
       </TabList>
-
-      {/* menu &&
-        menu.map(type => {
+      {
+        tabsList && tabsList.map(tabPanel => {
           return (
-            <TabPanel
-              key={type.id}
-              tabId={type.type_food}
-              className="tabs__panel"
-            >
-              {type.food_list.map((item, index) => {
-                return <MenuItem key={index} itemData={item} />;
-              })}
+            <TabPanel tabId={tabPanel}>
+              {
+                menu
+                  .filter(opt => {
+                    return (opt.category_food === tabPanel)
+                  })
+                  .map(item => {
+                    return (
+                      <MenuItem key={item.id} itemData={item} />
+                    )
+                  })
+              }
             </TabPanel>
-          );
-        }) */}
+          )
+        })
+      }
     </Tabs>
   );
 }

@@ -9,6 +9,7 @@ import DeliverySelection from "./pages/DeliverySelection/DeliverySelection";
 import OrderCreation from "./pages/OrderCreation/OrderCreation";
 
 import NoMatch from "./pages/NoMatch/NoMatch";
+import AppContext from "./context/appContext";
 
 function App() {
 
@@ -37,19 +38,25 @@ function App() {
         <BreadcrumbList stages={stagesList} />
       </NavBar>
       <div className="main">
-        <Switch>
-          <Route exact path="/" >
-            <DeliverySelection />
-          </Route>
+        <AppContext.Provider value="TEST CONTEXT HOOK">
+          <Switch>
+            <Route exact path="/" >
+              <DeliverySelection />
+            </Route>
 
-          <Route exact path="/order-creation/:id">
-            <OrderCreation/>
-          </Route>
+            <Route exact path="/order-creation/:id">
+              <OrderCreation />
+            </Route>
 
-          <Route path="/data-deliver">{/* <DetailProduct /> */}</Route>
+            <Route path="/data-deliver">
+              {/* <DetailProduct /> */}
+            </Route>
 
-          <Route component={NoMatch} />
-        </Switch>
+            <Route component={NoMatch} />
+          </Switch>
+
+        </AppContext.Provider>
+
       </div>
     </Router>
   );
