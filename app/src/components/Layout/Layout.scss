@@ -12,7 +12,7 @@
   }
 
   @media screen and (min-width: $large-breackpoint) {
-    max-width: 960px;
+    max-width: 1200px;
   }
 
   &--full {
@@ -31,7 +31,6 @@
   }
 
   &--four-cols {
-    
     grid-template-columns: repeat(2, 1fr);
 
     @media screen and (min-width: $medium-breackpoint) {

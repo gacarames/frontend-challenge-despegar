@@ -1,0 +1,38 @@
+@import "../../sass/shared";
+
+.delivery-form {
+  .form {
+    display: flex;
+    flex-direction: column;
+    box-shadow: $static-shadow;
+    border-radius: 2px;
+    overflow: hidden;
+
+    @media screen and (min-width: $medium-breackpoint) {
+      flex-direction: row;
+    }
+
+    &__input {
+      color: $secondary-font-color;
+      line-height: 20px;
+      width: 100%;
+      padding: 6px 0;
+      border: none;
+
+      @media screen and (min-width: $medium-breackpoint) {
+        padding-left: 12px;
+      }
+    }
+
+    &__submit {
+      padding: 6px 0;
+      width: 36px;
+      background-color: #fff;
+      border: none;
+      background-image: url(/magnifying-glass.svg);
+      background-size: 14px;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}

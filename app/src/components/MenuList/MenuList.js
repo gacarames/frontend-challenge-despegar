@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { Tabs, Tab, TabPanel, TabList } from "react-web-tabs";
 import "./MenuList.scss";
@@ -7,15 +7,11 @@ import MenuItem from "../MenuItem/MenuItem";
 
 function MenuList(props) {
 
-  /* const [listSelectedItems, setListSelectedItems] = useState([]); */
-
   const { menu } = props;
 
   let categorys = menu.map(opt => opt.category_food)
 
   let tabsList = [...new Set(categorys)].sort()
-
-  console.log(menu)
 
   return (
     <Tabs
@@ -42,7 +38,7 @@ function MenuList(props) {
       {
         tabsList && tabsList.map(tabPanel => {
           return (
-            <TabPanel tabId={tabPanel}>
+            <TabPanel tabId={tabPanel} key={tabPanel}>
               {
                 menu
                   .filter(opt => {

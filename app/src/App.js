@@ -4,12 +4,13 @@ import "./sass/App.scss";
 import Logo from "./components/Logo/Logo";
 import NavBar from "./components/NavBar/NavBar";
 import BreadcrumbList from "./components/BreadcrumbList/BreadcrumbList";
-
 import DeliverySelection from "./pages/DeliverySelection/DeliverySelection";
 import OrderCreation from "./pages/OrderCreation/OrderCreation";
-
+import OrderDelivery from "./pages/OrderDelivery/OrderDelivery";
 import NoMatch from "./pages/NoMatch/NoMatch";
-import AppContext from "./context/appContext";
+
+
+import DeliveryListProvider from './context/DeliveryListProvider'
 
 function App() {
 
@@ -32,13 +33,13 @@ function App() {
   ]
 
   return (
-    <Router forceRefresh={true}>
-      <NavBar>
-        <Logo />
-        <BreadcrumbList stages={stagesList} />
-      </NavBar>
-      <div className="main">
-        <AppContext.Provider value="TEST CONTEXT HOOK">
+    <DeliveryListProvider>
+      <Router /* forceRefresh={true} */>
+        <NavBar>
+          <Logo />
+          <BreadcrumbList stages={stagesList} />
+        </NavBar>
+        <div className="main">
           <Switch>
             <Route exact path="/" >
               <DeliverySelection />
@@ -48,17 +49,16 @@ function App() {
               <OrderCreation />
             </Route>
 
-            <Route path="/data-deliver">
-              {/* <DetailProduct /> */}
+            <Route path="/order-delivery/:id">
+              <OrderDelivery />
             </Route>
 
             <Route component={NoMatch} />
           </Switch>
 
-        </AppContext.Provider>
-
-      </div>
-    </Router>
+        </div>
+      </Router>
+    </DeliveryListProvider>
   );
 }
 

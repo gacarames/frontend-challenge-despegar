@@ -1,13 +1,18 @@
-import React from "react";
-
+import React, { useContext } from "react";
+import DeliveryListContext from '../../context/appContext'
 import "./MenuItem.scss";
 
-function handleAddItem(e) {
-  const { id } = e.target
-  console.log(id)
-}
 
 function MenuItem(props) {
+  const { itemsDelivery, addItemDeliveryList } = useContext(DeliveryListContext)
+
+  function handleAddItem(e) {
+    const { id } = e.target
+    if (!itemsDelivery.includes(id)) {
+      return addItemDeliveryList(id)
+    }
+  }
+
   const { name, description, price, id } = props.itemData;
   return (
     <div className="menu-item">

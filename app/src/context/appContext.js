@@ -1,3 +1,5 @@
-import React from 'react';
-const AppContext = React.createContext(null);
-export default AppContext;
+import { createContext } from 'react';
+
+const DeliveryListContext = createContext();
+
+export default DeliveryListContext;

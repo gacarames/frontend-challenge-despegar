@@ -3,18 +3,17 @@ import { useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import { HOST } from "../../api";
 import { Link } from "react-router-dom";
-import './OrderCreation.scss';
+import './OrderDelivery.scss';
 import Loading from "../../components/Loading/Loading";
 import {
   Section,
   Column
-} from "../../components/Layout/Layout";
-import MenuList from '../../components/MenuList/MenuList'
+} from "../../components/Layout/Layout"
 import DeliveryList from '../../components/DeliveryList/DeliveryList'
+import DeliveryForm from '../../components/DeliveryForm/DeliveryForm'
 import GoBack from '../../components/GoBack/GoBack'
 
-
-function OrderCreation() {
+function OrderDelivery() {
 
   const { id } = useParams();
 
@@ -34,14 +33,16 @@ function OrderCreation() {
     <>
       <Section section="order-creation" styled="card" layout="two-cols">
         <Column>
-          <MenuList menu={menu_list} />
+          <DeliveryForm />
         </Column>
         <Column>
           <DeliveryList delivery={menu_list} />
         </Column>
+      </Section>
+      <Section section="order-creation">
         <Column>
           <GoBack />
-          <Link to={`/order-delivery/${id}`} >
+          <Link to="/order-delivery" >
             <button>Continuar</button>
           </Link>
         </Column>
@@ -50,4 +51,4 @@ function OrderCreation() {
   );
 }
 
-export default OrderCreation;
+export default OrderDelivery;
