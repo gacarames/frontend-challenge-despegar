@@ -5,7 +5,7 @@ import './DeliveryItem.scss';
 
 function DeliveryItem(props) {
 
-  const { removeItemDeliveryList } = useContext(DeliveryListContext)
+  const { removeItemDeliveryList, modifyQuantityItemDeliveryList } = useContext(DeliveryListContext)
 
   const { name, price, id } = props.itemData
 
@@ -21,8 +21,11 @@ function DeliveryItem(props) {
   function handleNumberItems(e) {
     const { value } = e.target
     let totalPrice = (value > 0) ? price * value : price
-    setValueInput(value)
+    setValueInput(value > -1 ? value : 0)
     setTotal(totalPrice)
+
+    console.log(value)
+    return modifyQuantityItemDeliveryList(id, value)
   }
 
   return (

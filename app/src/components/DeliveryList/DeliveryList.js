@@ -13,13 +13,11 @@ function DeliveryList(props) {
 
   let filteredArray = delivery.filter(function (array_el) {
     return itemsDelivery.filter(function (anotherOne_el) {
-      return anotherOne_el === array_el.id;
+      return anotherOne_el.id === array_el.id;
     }).length === 1
   });
 
   let totalOrderCost = filteredArray.reduce((total, item) => total + item.price, 0)
-
-  console.log(itemsDelivery)
 
   return (
     <>

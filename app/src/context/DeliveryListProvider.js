@@ -5,30 +5,52 @@ const DeliveryListProvider = ({ children }) => {
 
     const removeItemDeliveryList = id => {
         setDeliveryList(prevState => {
-            const itemsDelivery = prevState.itemsDelivery.filter(item => item !== id);
+            const itemsDelivery = prevState.itemsDelivery.filter(item => item.id !== id);
             return { ...prevState, itemsDelivery };
         })
     }
 
     const addItemDeliveryList = (id) => {
-
         setDeliveryList(prevState => ({
             ...prevState,
-            itemsDelivery: [...prevState.itemsDelivery, id]
+            itemsDelivery: [...prevState.itemsDelivery, { id: id, units: '1' }]
         }))
+    }
 
+    const modifyQuantityItemDeliveryList = (id, value) => {
+        setDeliveryList(prevState => {
+            const itemUpdate = prevState.itemsDelivery.find(element => element.id === id);
+            itemUpdate.units = value;
+            return { ...prevState, itemUpdate };
+        })
     }
 
     const listState = {
         itemsDelivery: [
-            /* '5e163cb9b45b8c4b5241c7fc',
-            '5e163cb9aa94be116d113cc7',
-            '5e163cb97c2bb4cbce13a6aa',
-            '5e163cb99469111ba6c8ad02',
-            '5e163cb95672ff9c7314b309' */
+            /* {
+                id: '5e163cb9b45b8c4b5241c7fc',
+                units: ''
+            },
+            {
+                id: '5e163cb9aa94be116d113cc7',
+                units: ''
+            },
+            {
+                id: '5e163cb97c2bb4cbce13a6aa',
+                units: ''
+            },
+            {
+                id: '5e163cb99469111ba6c8ad02',
+                units: ''
+            },
+            {
+                id: '5e163cb95672ff9c7314b309',
+                units: ''
+            } */
         ],
         removeItemDeliveryList,
-        addItemDeliveryList
+        addItemDeliveryList,
+        modifyQuantityItemDeliveryList
     }
 
     const [deliveryList, setDeliveryList] = useState(listState)
