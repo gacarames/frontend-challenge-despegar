@@ -1,8 +1,7 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import { HOST } from "../../api";
-import { Link } from "react-router-dom";
 import './OrderDelivery.scss';
 import Loading from "../../components/Loading/Loading";
 import {
@@ -12,6 +11,10 @@ import {
 import DeliveryList from '../../components/DeliveryList/DeliveryList'
 import DeliveryForm from '../../components/DeliveryForm/DeliveryForm'
 import GoBack from '../../components/GoBack/GoBack'
+import InputForm from '../../components/InputForm/InputForm';
+import Modal from '../../components/Modal/Modal';
+
+import DeliveryListContext from "../../context/appContext";
 
 function OrderDelivery() {
 
@@ -20,6 +23,34 @@ function OrderDelivery() {
   const { data, loading, error } = useFetch(`${HOST}/api/restaurants/${id}`);
 
   const { menu_list } = data
+
+// test level up state
+
+const { itemsDelivery } = useContext(DeliveryListContext);
+
+/* let filteredArray = menu_list.filter(function(array_el) {
+  return (
+    itemsDelivery.filter(function(anotherOne_el) {
+      return anotherOne_el.id === array_el.id;
+    }).length === 1
+  );
+});
+
+let mergedArray = filteredArray.map((array_fil_el, index) => {
+  if (array_fil_el.id === itemsDelivery[index].id) {
+    return { ...array_fil_el, ...itemsDelivery[index] };
+  }
+});
+
+let totalOrderCost = filteredArray.reduce(
+  (total, item) => total + item.price,
+  0
+); */
+
+console.log(menu_list)
+console.log(itemsDelivery)
+
+// fin test level up state
 
   if (loading) {
     return <Loading />;
@@ -36,17 +67,17 @@ function OrderDelivery() {
           <DeliveryForm />
         </Column>
         <Column>
-          <DeliveryList delivery={menu_list} />
+          <DeliveryList /* delivery={{filteredArray, totalOrderCost}} */ />
         </Column>
       </Section>
       <Section section="order-creation">
         <Column>
           <GoBack />
-          <Link to="/order-delivery" >
-            <button>Continuar</button>
-          </Link>
+          {/* <Link to="/order-delivery" ></Link> */}
+            <InputForm type="submit" name="submit" value="Enviar"/>
         </Column>
       </Section>
+      <Modal/>
     </>
   );
 }

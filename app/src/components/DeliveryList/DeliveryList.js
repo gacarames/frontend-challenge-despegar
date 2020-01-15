@@ -1,23 +1,42 @@
-import React, { useContext } from 'react';
-import DeliveryListContext from '../../context/appContext'
-import DeliveryItem from '../DeliveryItem/DeliveryItem';
-import './DeliveryList.scss';
+import React/* , { useContext } */ from "react";
+/* import DeliveryListContext from "../../context/appContext"; */
+import DeliveryItem from "../DeliveryItem/DeliveryItem";
+import "./DeliveryList.scss";
 
 import NumberFormat from "react-number-format";
 
 function DeliveryList(props) {
 
-  const { delivery } = props
+  const { filteredArray, totalOrderCost } = props.delivery
 
-  const { itemsDelivery } = useContext(DeliveryListContext)
+  /* test level up state
 
-  let filteredArray = delivery.filter(function (array_el) {
-    return itemsDelivery.filter(function (anotherOne_el) {
-      return anotherOne_el.id === array_el.id;
-    }).length === 1
+  const { delivery } = props;
+
+  const { itemsDelivery } = useContext(DeliveryListContext);
+
+   let filteredArray = delivery.filter(function(array_el) {
+    return (
+      itemsDelivery.filter(function(anotherOne_el) {
+        return anotherOne_el.id === array_el.id;
+      }).length === 1
+    );
   });
 
-  let totalOrderCost = filteredArray.reduce((total, item) => total + item.price, 0)
+  let mergedArray = filteredArray.map((array_fil_el, index) => {
+    if (array_fil_el.id === itemsDelivery[index].id) {
+      return { ...array_fil_el, ...itemsDelivery[index] };
+    }
+  });
+
+  let totalOrderCost = filteredArray.reduce(
+    (total, item) => total + item.price,
+    0
+  );
+  
+  fin test level up state */
+
+  /* console.log(filteredArray, totalOrderCost); */
 
   return (
     <>
@@ -31,13 +50,14 @@ function DeliveryList(props) {
           </tr>
         </thead>
         <tbody>
-          {filteredArray && filteredArray.map(item => {
-            return (
-              <DeliveryItem itemData={item} key={item.id} />
-            )
-          })}
+          {filteredArray &&
+            filteredArray.map(item => {
+              return <DeliveryItem itemData={item} key={item.id} />;
+            })}
           <tr className="delivery-list__total">
-            <td className="delivery-list__total-price" colSpan="4">TOTAL</td>
+            <td className="delivery-list__total-price" colSpan="4">
+              TOTAL
+            </td>
             <td className="delivery-list__total-price">
               <NumberFormat
                 className="delivery-item__price"

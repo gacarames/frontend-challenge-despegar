@@ -20,11 +20,15 @@ function DeliveryItem(props) {
 
   function handleNumberItems(e) {
     const { value } = e.target
+
     let totalPrice = (value > 0) ? price * value : price
+
     setValueInput(value > -1 ? value : 0)
+
     setTotal(totalPrice)
 
     console.log(value)
+    
     return modifyQuantityItemDeliveryList(id, value)
   }
 
