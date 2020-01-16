@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import "./Search.scss";
-/* import { useHistory } from "react-router-dom"; */
 
 function Search(props) {
-  /* let history = useHistory(); */
 
   const [filterForName, setFilterForName] = useState("");
   const [filterForDescription, setFilterForDescription] = useState("");
@@ -24,7 +22,7 @@ function Search(props) {
     <div className="search">
       <form className="form">
         <div className="form__group">
-          <label htmlFor="nombre">Nombre</label>
+          <label htmlFor="nombre">Nombre:</label>
           <input
             type="text"
             value={filterForName}
@@ -33,7 +31,7 @@ function Search(props) {
           />
         </div>
         <div className="form__group">
-          <label htmlFor="descripcion">Description</label>
+          <label htmlFor="descripcion">Descripción:</label>
           <input
             type="text"
             value={filterForDescription}

@@ -2,12 +2,12 @@ import React from "react";
 import "./InputForm.scss";
 
 function InputForm(props) {
-  const { id, label, name, value, type } = props;
+  const { id, label, name, value, type, onChange } = props;
 
   return (
     <div className="input-form">
 
-      {type === 'submit' ? null : 
+      {type === 'submit' ? null :
         <label htmlFor={name} className="input-form__label">
           {label}
         </label>
@@ -19,6 +19,7 @@ function InputForm(props) {
         value={value}
         name={name}
         className="input-form__input"
+        onChange={onChange}
       />
     </div>
   );

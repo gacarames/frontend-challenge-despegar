@@ -14,8 +14,6 @@ function DeliverySelection() {
   const [queryFilterName, setQueryFilterName] = useState("");
   const [queryFilterDescription, setQueryFilterDescription] = useState("");
 
-  /* const { id } = useParams(); */
-
   const { data, loading, error } = useFetch(`${HOST}/api/restaurants/`);
 
   function searchQueryCallbackName(valueFromChild) {
