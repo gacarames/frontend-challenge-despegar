@@ -16,7 +16,7 @@ function ResultItem(props) {
         <div className="item__wrapper">
           <div className="item__description-container">
             <h2 className="item__title">{name}</h2>
-            <p>{about}</p>
+            <p className="item__about">{about}</p>
           </div>
 
         </div>

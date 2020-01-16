@@ -1,46 +1,26 @@
 @import "../../sass/shared";
 
 .search {
-  padding: 8px 0;
+  padding: 16px 0;
   width: 100%;
+  background-color: $primary-brand-light-color;
 
   ::placeholder {
     color: #aaa;
     font-weight: 400;
   }
 
-  .form {
+  &__form {
     display: flex;
     flex-direction: column;
     box-shadow: $static-shadow;
-    border-radius: 2px;
+    background-color: $primary-brand-color;
+    border-radius: $radius;
+    padding: 24px 16px;
     overflow: hidden;
 
     @media screen and (min-width: $medium-breackpoint) {
       flex-direction: row;
-    }
-
-    &__input {
-      color: $secondary-font-color;
-      line-height: 20px;
-      width: 100%;
-      padding: 6px 0;
-      border: none;
-
-      @media screen and (min-width: $medium-breackpoint) {
-        padding-left: 12px;
-      }
-    }
-
-    &__submit {
-      padding: 6px 0;
-      width: 36px;
-      background-color: #fff;
-      border: none;
-      background-image: url(/magnifying-glass.svg);
-      background-size: 14px;
-      background-repeat: no-repeat;
-      background-position: center;
     }
   }
 }

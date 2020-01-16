@@ -1,17 +1,19 @@
 @import "../../sass/shared";
 
 .nav {
-  background-color: $primary-brand-color;
+  background-color: #fff;
   width: 100%;
 
   &__wrapper {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
     width: 100%;
-    padding: 0 52px 0 10px;
+    padding: 0 10px;
 
     @media screen and (min-width: $medium-breackpoint) {
+      flex-direction: row;
+      justify-content: space-between;
       padding: 0 16px;
     }
 

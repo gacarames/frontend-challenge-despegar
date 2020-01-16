@@ -1,1 +1,37 @@
-.InputForm {}
+@import "../../sass/shared";
+
+.input-form {
+  width: 100%;
+  margin-bottom: 20px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: $medium-breackpoint) {
+    width: 25%;
+    margin-bottom: 0;
+
+    &:last-child {
+        padding-left: 16px;
+      }
+  }
+
+  &__label {
+    color: #fff;
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    letter-spacing: 1pt;
+  }
+
+  &__input {
+    width: 100%;
+    height: 36px;
+    padding: 16px;
+    border: none;
+    border-radius: $radius;
+  }
+}

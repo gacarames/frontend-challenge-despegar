@@ -3,10 +3,6 @@ import "./OptionsList.scss";
 import ResultItem from "../ResultItem/ResultItem";
 
 function OptionsList(props) {
-  /* const queryString = new URLSearchParams(window.location.search); */
-
-  /* const search = queryString.get("search"); */
-
   const { itemsList } = props
 
   return (

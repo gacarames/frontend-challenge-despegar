@@ -1,1 +1,31 @@
-.DeliveryItem {}
+@import "../../sass/shared";
+
+.delivery-item {
+  display: grid;
+  grid-template-columns: 2fr 64px 1fr 1fr;
+  grid-column-gap: 16px;
+
+  &__product {
+    flex: 2 2 40%;
+  }
+
+  &__remove {
+    color: #dc3545;
+    border-color: #dc3545;
+    @extend %button;
+    margin-right: 6px;
+  }
+
+  &__amount {
+
+    &-input {
+      width: 100%;
+    }
+  }
+
+  &__price {
+  }
+
+  &__total {
+  }
+}

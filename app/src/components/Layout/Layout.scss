@@ -5,6 +5,7 @@
   grid-template-columns: auto;
   grid-auto-rows: auto;
   width: 100%;
+  padding: 0 16px;
 
   @media screen and (min-width: $medium-breackpoint) {
     margin: auto;
@@ -20,6 +21,7 @@
   }
 
   &--two-cols {
+    grid-gap: 16px;
     @media screen and (min-width: $medium-breackpoint) {
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: 1fr;
@@ -32,6 +34,7 @@
 
   &--four-cols {
     grid-template-columns: repeat(2, 1fr);
+    grid-gap: 16px;
 
     @media screen and (min-width: $medium-breackpoint) {
       grid-template-columns: repeat(4, 1fr);
@@ -39,14 +42,6 @@
   }
 
   &__col {
-    padding: 16px 30px;
-
-    &.left {
-      width: 100%;
-    }
-
-    &.right {
-      width: 100%;
-    }
+    padding: 16px;
   }
 }

@@ -52,12 +52,9 @@ function OrderDelivery() {
   function handleSubmitData() {
     setNewOrder({
       ...newOrder,
-      user: [userDeliveryData],
-      order: [mergedArray]
+      user: userDeliveryData,
+      order: mergedArray
     })
-
-    console.log('TERMINAR DE CONFIGURAR OBJETO NEWORDER')
-    /* return { ...userDeliveryData, mergedArray } */
   }
 
   return (

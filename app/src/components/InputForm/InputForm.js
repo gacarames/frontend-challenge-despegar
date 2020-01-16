@@ -7,13 +7,11 @@ function InputForm(props) {
 
   return (
     <div className="input-form">
-
-      {type === 'submit' ? null :
+      {type === 'submit' && null ? null :
         <label htmlFor={name} className="input-form__label">
           {label}
         </label>
       }
-
       <input
         id={id}
         type={type}

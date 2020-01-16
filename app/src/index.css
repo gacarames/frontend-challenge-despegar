@@ -1,24 +1,3 @@
-@font-face {
-  font-family: "Proxima Nova";
-  src: url(./assets/fonts/Proxima-Nova-Black.otf);
-  font-weight: 800;
-}
-@font-face {
-  font-family: "Proxima Nova";
-  src: url(./assets/fonts/Proxima-Nova-Bold.otf);
-  font-weight: 500;
-}
-@font-face {
-  font-family: "Proxima Nova";
-  src: url(./assets/fonts/Proxima-Nova-Regular.otf);
-  font-weight: 400;
-}
-@font-face {
-  font-family: "Proxima Nova";
-  src: url(./assets/fonts/Proxima-Nova-Thin.otf);
-  font-weight: 300;
-}
-
 *,
 ::before,
 ::after {
@@ -27,8 +6,7 @@
 
 body {
   margin: 0;
-  font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
-    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: Rubik,Arial,sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

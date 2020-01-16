@@ -1,29 +1,21 @@
-import React, { useContext } from 'react';
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import { HOST } from "../../api";
 import { Link } from "react-router-dom";
-import './OrderCreation.scss';
+import "./OrderCreation.scss";
 import Loading from "../../components/Loading/Loading";
-import {
-  Section,
-  Column
-} from "../../components/Layout/Layout";
-import MenuList from '../../components/MenuList/MenuList'
-import DeliveryList from '../../components/DeliveryList/DeliveryList'
-import GoBack from '../../components/GoBack/GoBack'
+import { Section, Column } from "../../components/Layout/Layout";
+import MenuList from "../../components/MenuList/MenuList";
+import DeliveryList from "../../components/DeliveryList/DeliveryList";
+import GoBack from "../../components/GoBack/GoBack";
 import DeliveryListContext from "../../context/appContext";
 
-
 function OrderCreation() {
-
   const { itemsDelivery } = useContext(DeliveryListContext);
-
   const { id } = useParams();
-
   const { data, loading, error } = useFetch(`${HOST}/api/restaurants/${id}`);
-
-  const { menu_list } = data
+  const { menu_list } = data;
 
   if (loading) {
     return <Loading />;
@@ -42,23 +34,23 @@ function OrderCreation() {
   });
 
   let mergedArray = filteredArray.map((array_fil_el, index) => {
-    //if (array_fil_el.id === itemsDelivery[index].id) {
     return { ...array_fil_el, ...itemsDelivery[index] };
-    //}
   });
 
   return (
     <>
-      <Section section="order-creation" styled="card" layout="two-cols">
-        <Column>
+      <Section section="order-creation" layout="two-cols">
+        <Column styled="card">
           <MenuList menu={menu_list} />
         </Column>
-        <Column>
+        <Column styled="card">
           <DeliveryList delivery={{ mergedArray }} />
         </Column>
+      </Section>
+      <Section section="navigation">
         <Column>
           <GoBack />
-          <Link to={`/order-delivery/${id}`} >
+          <Link to={`/order-delivery/${id}`}>
             <button className="order-creation__button">Continuar</button>
           </Link>
         </Column>

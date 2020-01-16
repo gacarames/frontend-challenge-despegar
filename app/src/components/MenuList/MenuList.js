@@ -2,7 +2,7 @@ import React from "react";
 
 import { Tabs, Tab, TabPanel, TabList } from "react-web-tabs";
 import "./MenuList.scss";
-import "react-web-tabs/dist/react-web-tabs.css";
+/* import "react-web-tabs/dist/react-web-tabs.css"; */
 import MenuItem from "../MenuItem/MenuItem";
 
 function MenuList(props) {

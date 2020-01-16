@@ -2,7 +2,14 @@
 
 .item {
   width: 100%;
-  border-bottom: 1px solid #f5f5f5;
+  background-color: #f5f5f5;
+  box-shadow: $static-shadow;
+  border-radius: $radius;
+  overflow: hidden;
+
+  &:hover {
+    @extend %hover;
+  }
 
   &__wrapper {
     display: flex;
@@ -10,7 +17,6 @@
     justify-content: center;
     align-items: flex-start;
     width: 100%;
-    padding: 12px 0;
   }
 
   &__link {
@@ -20,27 +26,28 @@
 
   &__description-container {
     width: 100%;
-    padding-right: 24px;
-    margin-top: 12px;
-
     @media screen and (min-width: $medium-breackpoint) {
-      padding-right: 32px;
-      margin-top: 24px;
     }
   }
 
   &__title {
-    color: $primary-font-color;
+    color: #fff;
+    background-color: $primary-brand-color;
     font-size: 16px;
     line-height: 22px;
-    max-height: 54px;
-    overflow: hidden;
-    font-weight: 400;
-    margin: 0 0 10px;
+    font-weight: 500;
+    padding: 8px 16px;
+    margin: 0;
 
     @media screen and (min-width: $medium-breackpoint) {
       font-size: 20px;
       line-height: 26px;
     }
+  }
+
+  &__about {
+    font-size: 16px;
+    margin: 0;
+    padding: 16px; 
   }
 }

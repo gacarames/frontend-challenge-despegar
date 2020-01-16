@@ -22,8 +22,8 @@ function Search(props) {
   const { name, description } = filters
 
   return (
-    <div className="search">
-      <form className="form">
+    <>
+      <form className="search__form">
         <InputForm
           label="Nombre"
           type="text"
@@ -39,7 +39,7 @@ function Search(props) {
           onChange={handleOnChange}
         />
       </form>
-    </div>
+    </>
   );
 }
 
