@@ -1,9 +1,7 @@
 @import "../../sass/shared";
 
 .go-back {
-  color: #111;
-  background: none;
-  border:1px solid #000;
+  @extend %button;
 
   @media screen and (min-width: $medium-breackpoint) {
     display: inline;

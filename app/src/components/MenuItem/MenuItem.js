@@ -5,17 +5,17 @@ import "./MenuItem.scss";
 
 function MenuItem(props) {
   const { itemsDelivery, addItemDeliveryList } = useContext(DeliveryListContext)
-  
+
   const { name, description, price, id } = props.itemData;
 
   function handleAddItem(e) {
     const { id } = e.target
-    if (!itemsDelivery.includes(id)) {
-      console.log(itemsDelivery)
+    const existId = itemsDelivery.find(elem => elem.id === id)
+    if (!existId) {
       return addItemDeliveryList(id)
     }
   }
-  
+
   return (
     <div className="menu-item">
       <span className="menu-item__name">{name}</span>

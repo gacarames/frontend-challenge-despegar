@@ -8,8 +8,6 @@ import DeliverySelection from "./pages/DeliverySelection/DeliverySelection";
 import OrderCreation from "./pages/OrderCreation/OrderCreation";
 import OrderDelivery from "./pages/OrderDelivery/OrderDelivery";
 import NoMatch from "./pages/NoMatch/NoMatch";
-
-
 import DeliveryListProvider from './context/DeliveryListProvider'
 
 function App() {
@@ -55,7 +53,6 @@ function App() {
 
             <Route component={NoMatch} />
           </Switch>
-
         </div>
       </Router>
     </DeliveryListProvider>

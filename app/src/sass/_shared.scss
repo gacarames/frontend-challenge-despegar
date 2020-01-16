@@ -14,3 +14,13 @@ $large-breackpoint: 1260px;
 
 //radius
 $radius: 4px;
+
+// button
+%button {
+  font-size: 14px;
+  color: $primary-font-color;
+  border: 1px solid $primary-font-color;
+  padding: 6px 12px;
+  border-radius: $radius;
+  background-color: #fff;
+}

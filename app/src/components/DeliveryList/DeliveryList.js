@@ -1,13 +1,12 @@
-import React/* , { useContext } */ from "react";
+import React /* , { useContext } */ from "react";
 /* import DeliveryListContext from "../../context/appContext"; */
 import DeliveryItem from "../DeliveryItem/DeliveryItem";
 import "./DeliveryList.scss";
-
 import NumberFormat from "react-number-format";
 
 function DeliveryList(props) {
 
-  const { filteredArray, totalOrderCost } = props.delivery
+  const { mergedArray } = props.delivery
 
   /* test level up state
 
@@ -28,15 +27,13 @@ function DeliveryList(props) {
       return { ...array_fil_el, ...itemsDelivery[index] };
     }
   });
-
-  let totalOrderCost = filteredArray.reduce(
-    (total, item) => total + item.price,
-    0
-  );
   
   fin test level up state */
 
-  /* console.log(filteredArray, totalOrderCost); */
+  let totalOrderCost = mergedArray && mergedArray.reduce(
+    (total, item) => total + item.price,
+    0
+  );
 
   return (
     <>
@@ -50,8 +47,8 @@ function DeliveryList(props) {
           </tr>
         </thead>
         <tbody>
-          {filteredArray &&
-            filteredArray.map(item => {
+          {mergedArray &&
+            mergedArray.map(item => {
               return <DeliveryItem itemData={item} key={item.id} />;
             })}
           <tr className="delivery-list__total">

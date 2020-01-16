@@ -7,9 +7,9 @@ function DeliveryItem(props) {
 
   const { removeItemDeliveryList, modifyQuantityItemDeliveryList } = useContext(DeliveryListContext)
 
-  const { name, price, id } = props.itemData
+  const { name, price, id, units } = props.itemData
 
-  const [valueInput, setValueInput] = useState(1);
+  const [valueInput, setValueInput] = useState(units);
 
   const [total, setTotal] = useState(price);
 
@@ -20,15 +20,9 @@ function DeliveryItem(props) {
 
   function handleNumberItems(e) {
     const { value } = e.target
-
     let totalPrice = (value > 0) ? price * value : price
-
     setValueInput(value > -1 ? value : 0)
-
     setTotal(totalPrice)
-
-    console.log(value)
-    
     return modifyQuantityItemDeliveryList(id, value)
   }
 

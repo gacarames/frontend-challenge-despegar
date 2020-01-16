@@ -1,1 +1,7 @@
-.OrderCreation {}
+@import "../../sass/shared";
+
+.order-creation {
+  &__button {
+    @extend %button;
+  }
+}

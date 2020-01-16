@@ -29,23 +29,23 @@ const DeliveryListProvider = ({ children }) => {
         itemsDelivery: [
             /* {
                 id: '5e163cb9b45b8c4b5241c7fc',
-                units: ''
+                units: '1'
             },
             {
                 id: '5e163cb9aa94be116d113cc7',
-                units: ''
+                units: '1'
             },
             {
                 id: '5e163cb97c2bb4cbce13a6aa',
-                units: ''
+                units: '1'
             },
             {
                 id: '5e163cb99469111ba6c8ad02',
-                units: ''
+                units: '1'
             },
             {
                 id: '5e163cb95672ff9c7314b309',
-                units: ''
+                units: '1'
             } */
         ],
         removeItemDeliveryList,

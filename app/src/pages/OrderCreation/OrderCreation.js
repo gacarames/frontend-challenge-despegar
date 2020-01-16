@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import { HOST } from "../../api";
@@ -12,9 +12,12 @@ import {
 import MenuList from '../../components/MenuList/MenuList'
 import DeliveryList from '../../components/DeliveryList/DeliveryList'
 import GoBack from '../../components/GoBack/GoBack'
+import DeliveryListContext from "../../context/appContext";
 
 
 function OrderCreation() {
+
+  const { itemsDelivery } = useContext(DeliveryListContext);
 
   const { id } = useParams();
 
@@ -30,6 +33,20 @@ function OrderCreation() {
     console.log(error);
   }
 
+  let filteredArray = menu_list.filter(array_el => {
+    return (
+      itemsDelivery.filter(anotherOne_el => {
+        return anotherOne_el.id === array_el.id;
+      }).length === 1
+    );
+  });
+
+  let mergedArray = filteredArray.map((array_fil_el, index) => {
+    //if (array_fil_el.id === itemsDelivery[index].id) {
+    return { ...array_fil_el, ...itemsDelivery[index] };
+    //}
+  });
+
   return (
     <>
       <Section section="order-creation" styled="card" layout="two-cols">
@@ -37,12 +54,12 @@ function OrderCreation() {
           <MenuList menu={menu_list} />
         </Column>
         <Column>
-          <DeliveryList delivery={menu_list} />
+          <DeliveryList delivery={{ mergedArray }} />
         </Column>
         <Column>
           <GoBack />
           <Link to={`/order-delivery/${id}`} >
-            <button>Continuar</button>
+            <button className="order-creation__button">Continuar</button>
           </Link>
         </Column>
       </Section>
