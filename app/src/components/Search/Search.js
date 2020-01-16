@@ -1,44 +1,43 @@
 import React, { useState } from "react";
 import "./Search.scss";
+import InputForm from "../InputForm/InputForm"
 
 function Search(props) {
 
-  const [filterForName, setFilterForName] = useState("");
-  const [filterForDescription, setFilterForDescription] = useState("");
-
-  function handleChangeValueName(event) {
-    let { value } = event.target;
-    setFilterForName(value);
-    props.callbackParentToGetName(value)
+  const filtersInitialState = {
+    name: '',
+    description: ''
   }
 
-  function handleChangeValueDescription(event) {
-    let { value } = event.target;
-    setFilterForDescription(value);
-    props.callbackParentToGetDescription(value)
+  const [filters, setFilters] = useState(filtersInitialState)
+
+  function handleOnChange({ target: { name, value } }) {
+    setFilters({
+      ...filters,
+      [name]: value
+    });
+    props.getfilterValues(filters)
   }
+
+  const { name, description } = filters
 
   return (
     <div className="search">
       <form className="form">
-        <div className="form__group">
-          <label htmlFor="nombre">Nombre:</label>
-          <input
-            type="text"
-            value={filterForName}
-            onChange={handleChangeValueName}
-            className="form__input"
-          />
-        </div>
-        <div className="form__group">
-          <label htmlFor="descripcion">Descripción:</label>
-          <input
-            type="text"
-            value={filterForDescription}
-            onChange={handleChangeValueDescription}
-            className="form__input"
-          />
-        </div>
+        <InputForm
+          label="Nombre"
+          type="text"
+          name="name"
+          value={name}
+          onChange={handleOnChange}
+        />
+        <InputForm
+          label="Descripción"
+          type="text"
+          name="description"
+          value={description}
+          onChange={handleOnChange}
+        />
       </form>
     </div>
   );

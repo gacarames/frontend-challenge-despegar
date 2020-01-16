@@ -2,6 +2,7 @@ import React from "react";
 import "./InputForm.scss";
 
 function InputForm(props) {
+
   const { id, label, name, value, type, onChange } = props;
 
   return (

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-/* import { useParams } from "react-router-dom"; */
 import useFetch from "../../hooks/useFetch";
 import "./DeliverySelection.scss";
 import { HOST } from "../../api";
@@ -11,26 +10,21 @@ import "./DeliverySelection.scss";
 
 function DeliverySelection() {
 
-  const [queryFilterName, setQueryFilterName] = useState("");
-  const [queryFilterDescription, setQueryFilterDescription] = useState("");
+  const [filterQuery, setFiltersQuery] = useState({})
+
+  function filterQueryCallback(filterValueaFromChild) {
+    setFiltersQuery(filterValueaFromChild);
+  }
 
   const { data, loading, error } = useFetch(`${HOST}/api/restaurants/`);
-
-  function searchQueryCallbackName(valueFromChild) {
-    setQueryFilterName(valueFromChild);
-  }
-
-  function searchQueryCallbackDescription(valueFromChild) {
-    setQueryFilterDescription(valueFromChild);
-  }
 
   let filterList = []
 
   function filterOptionsList() {
-    if (data && (queryFilterName || queryFilterDescription)) {
+    if (data && (filterQuery.name || filterQuery.description)) {
       filterList = data.filter((item) => {
         return (
-          item.name.toLowerCase().includes(queryFilterName.toLowerCase()) && item.about.toLowerCase().includes(queryFilterDescription.toLowerCase())
+          item.name.toLowerCase().includes(filterQuery.name.toLowerCase()) && item.about.toLowerCase().includes(filterQuery.description.toLowerCase())
         )
       })
     } else {
@@ -51,15 +45,10 @@ function DeliverySelection() {
   return (
     <>
       <Section section="search">
-        <Search
-          callbackParentToGetName={searchQueryCallbackName}
-          callbackParentToGetDescription={searchQueryCallbackDescription}
-        />
+        <Search getfilterValues={filterQueryCallback} />
       </Section>
       <Section section="options" styled="" layout="four-cols">
-        <OptionsList
-          itemsList={filterList}
-        />
+        <OptionsList itemsList={filterList} />
       </Section>
     </>
   );

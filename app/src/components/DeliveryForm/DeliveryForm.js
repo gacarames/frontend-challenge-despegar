@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import './DeliveryForm.scss';
 import InputForm from '../InputForm/InputForm';
 
-function DeliveryForm() {
+function DeliveryForm(props) {
 
   const formInitialState = {
-    userId: '',
     name: '',
     lastName: '',
     address: '',
@@ -16,24 +15,19 @@ function DeliveryForm() {
   const [formValues, setFormValues] = useState(formInitialState)
 
   function handleOnChange({ target: { name, value } }) {
-    return setFormValues({
+    setFormValues({
       ...formValues,
       [name]: value
     });
+    props.GetFormValues(formValues)
   }
 
-  const { userId, name, lastName, address, floor, apartment } = formValues
-
-  function handleSubmit(event) {
-    console.log('submit form address')
-    event.preventDefault();
-  }
+  const { name, lastName, address, floor, apartment } = formValues
 
   return (
     <div className="delivery-form">
       <h3 className="delivery-form_heading">Completa tus datos</h3>
-      <form onSubmit={handleSubmit} className="delivery-form__form">
-
+      <form className="delivery-form__form">
         <InputForm
           type="text"
           label="Nombre"
@@ -69,7 +63,6 @@ function DeliveryForm() {
           value={apartment}
           onChange={handleOnChange}
         />
-        {/* <InputForm type="submit" name="submit" value="Enviar" /> */}
       </form>
     </div>
   )

@@ -8,13 +8,16 @@ import { Section, Column } from "../../components/Layout/Layout"
 import DeliveryList from '../../components/DeliveryList/DeliveryList'
 import DeliveryForm from '../../components/DeliveryForm/DeliveryForm'
 import GoBack from '../../components/GoBack/GoBack'
-import InputForm from '../../components/InputForm/InputForm';
 import Modal from '../../components/Modal/Modal';
 import DeliveryListContext from "../../context/appContext";
 
 function OrderDelivery() {
 
   const { itemsDelivery } = useContext(DeliveryListContext);
+
+  const [userDeliveryData, setUserDeliveryData] = useState({})
+
+  const [newOrder, setNewOrder] = useState({})
 
   const { id } = useParams();
 
@@ -42,11 +45,26 @@ function OrderDelivery() {
     return { ...array_fil_el, ...itemsDelivery[index] };
   });
 
+  function CallbackFormValues(valueFromChild) {
+    setUserDeliveryData(valueFromChild);
+  }
+
+  function handleSubmitData() {
+    setNewOrder({
+      ...newOrder,
+      user: [userDeliveryData],
+      order: [mergedArray]
+    })
+
+    console.log('TERMINAR DE CONFIGURAR OBJETO NEWORDER')
+    /* return { ...userDeliveryData, mergedArray } */
+  }
+
   return (
     <>
       <Section section="order-creation" styled="card" layout="two-cols">
         <Column>
-          <DeliveryForm />
+          <DeliveryForm GetFormValues={CallbackFormValues} />
         </Column>
         <Column>
           <DeliveryList delivery={{ mergedArray }} />
@@ -55,10 +73,10 @@ function OrderDelivery() {
       <Section section="order-creation">
         <Column>
           <GoBack />
-          <InputForm type="submit" name="submit" value="Enviar" />
+          <buttom onClick={handleSubmitData}>Enviar</buttom>
         </Column>
       </Section>
-      <Modal jsonData={{ mergedArray }} />
+      <Modal jsonData={{ userDeliveryData }} />
     </>
   );
 }
