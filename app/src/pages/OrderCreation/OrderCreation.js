@@ -37,6 +37,9 @@ function OrderCreation() {
     return { ...array_fil_el, ...itemsDelivery[index] };
   });
 
+
+  let nextStep = mergedArray.length < 1;
+
   return (
     <>
       <Section section="order-creation" layout="two-cols">
@@ -51,7 +54,7 @@ function OrderCreation() {
         <Column styled="card juatify-end">
           <GoBack />
           <Link to={`/order-delivery/${id}`}>
-            <button
+            <button disabled={nextStep} 
               className="button button--primary"
             >
               Continuar

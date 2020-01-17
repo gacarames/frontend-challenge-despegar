@@ -1,0 +1,39 @@
+@import '../../sass/shared';
+
+.tooltip {
+    position: relative;
+
+    &__trigger {
+        display: inline-block;
+        @extend %button;
+        padding: 0 8px;
+        border-radius: 10px;
+        background-color: #fff
+    }
+
+    &__content {
+        color:#fff;
+        font-size: 12px;
+        line-height: 16px;
+        text-align: center;
+        padding: 6px;
+        border-radius: $radius;
+        background-color: rgba(0,0,0,.9);
+
+        min-width: 120px;
+        max-width: 210px;
+        position: absolute;
+        z-index: 10;
+        &::after {
+          content: '';
+          position: absolute;
+        }
+      }
+
+      &--bottom {
+        top: 100%;
+        left: 50%;
+        padding-top: 9px;
+        transform: translateX(-50%);
+      }
+}

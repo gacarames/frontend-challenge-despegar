@@ -1,31 +1,30 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import { HOST } from "../../api";
-import './OrderDelivery.scss';
+import "./OrderDelivery.scss";
 import Loading from "../../components/Loading/Loading";
-import { Section, Column } from "../../components/Layout/Layout"
-import DeliveryList from '../../components/DeliveryList/DeliveryList'
-import DeliveryForm from '../../components/DeliveryForm/DeliveryForm'
-import GoBack from '../../components/GoBack/GoBack'
-import Modal from '../../components/Modal/Modal';
+import { Section, Column } from "../../components/Layout/Layout";
+import DeliveryList from "../../components/DeliveryList/DeliveryList";
+import DeliveryForm from "../../components/DeliveryForm/DeliveryForm";
+import GoBack from "../../components/GoBack/GoBack";
+import Modal from "../../components/Modal/Modal";
 import DeliveryListContext from "../../context/appContext";
 
 function OrderDelivery() {
-
   const { itemsDelivery } = useContext(DeliveryListContext);
 
-  const [userDeliveryData, setUserDeliveryData] = useState({})
+  const [userDeliveryData, setUserDeliveryData] = useState({});
 
-  const [newOrder, setNewOrder] = useState({})
+  const [newOrder, setNewOrder] = useState({});
 
-  const [showModal, setShowModal] = useState(false)
+  const [showModal, setShowModal] = useState(false);
 
   const { id } = useParams();
 
   const { data, loading, error } = useFetch(`${HOST}/api/restaurants/${id}`);
 
-  const { menu_list } = data
+  const { menu_list } = data;
 
   if (loading) {
     return <Loading />;
@@ -56,11 +55,19 @@ function OrderDelivery() {
       ...newOrder,
       order: mergedArray,
       user: userDeliveryData
-    })
-    setShowModal(true)
+    });
+    setShowModal(true);
   }
+  
+  let keysStatus = Object.keys(userDeliveryData).map(key => userDeliveryData[key]).filter(userDeliveryData => userDeliveryData !== "")
 
+  let nextStep = mergedArray.length > 0 && keysStatus.length === 5;
+  
+  /* console.log('keysStatus',keysStatus.length === 5)
 
+  console.log('mergedArray',mergedArray.length > 0) */
+
+  console.log('nextStep',nextStep)
 
   return (
     <>
@@ -76,11 +83,12 @@ function OrderDelivery() {
         <Column styled="card juatify-end">
           <GoBack />
           <button
+            disabled={nextStep === true ? false : true}
             onClick={handleSubmitData}
             className="button button--primary"
           >
             Enviar Orden
-            </button>
+          </button>
         </Column>
       </Section>
       <Modal newOrder={newOrder} show={showModal} />

@@ -7,7 +7,7 @@ function DeliveryList(props) {
   const { mergedArray } = props.delivery;
 
   let totalOrderCost =
-    mergedArray && mergedArray.reduce((total, item) => total + item.price, 0);
+    mergedArray && mergedArray.reduce((total, item) => total + (item.price * item.units), 0);
 
   return (
     <>

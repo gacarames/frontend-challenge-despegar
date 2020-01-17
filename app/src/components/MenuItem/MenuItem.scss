@@ -2,7 +2,7 @@
 
 .menu-item {
   display: grid;
-  grid-template-columns: 2fr 1fr 64px;
+  grid-template-columns: 2fr 1fr 1fr;
   grid-column-gap: 16px;
   font-size: 14px;
   align-items: center;
@@ -11,8 +11,10 @@
     flex: 2 2 60%;
   }
 
-  &__tooltip {
-    display: none;
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
   }
 
   &__price {
@@ -22,7 +24,7 @@
   &__add {
     color: #28a745;
     border-color: #28a745;
+    max-width: 42px;
     @extend %button;
-    flex: 1 1 15%;
   }
 }

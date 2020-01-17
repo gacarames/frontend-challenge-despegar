@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
-import NumberFormat from "react-number-format";
-import DeliveryListContext from "../../context/appContext";
 import "./MenuItem.scss";
+import NumberFormat from "react-number-format";
+import Tooltip from "../Tooltip/Tooltip";
+import DeliveryListContext from "../../context/appContext";
 
 function MenuItem(props) {
   const { itemsDelivery, addItemDeliveryList } = useContext(
@@ -31,10 +32,13 @@ function MenuItem(props) {
         maxLength="12"
         className="menu-item__price"
       />
-      <span className="menu-item__tooltip">{description}</span>
-      <button className="menu-item__add" id={id} onClick={handleAddItem}>
-        add
-      </button>
+
+      <div className="menu-item__actions">
+        <Tooltip className="menu-item__tooltip" info={description}/>
+        <button className="menu-item__add" id={id} onClick={handleAddItem}>
+          add
+        </button>
+      </div>
     </div>
   );
 }

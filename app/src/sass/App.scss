@@ -47,6 +47,11 @@ section {
     background: #fff;
     border: 1px solid $secondary-brand-color;
   }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+
 }
 
 .juatify-end {
