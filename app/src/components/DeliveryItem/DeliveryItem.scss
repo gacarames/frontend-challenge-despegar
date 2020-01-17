@@ -5,8 +5,10 @@
   grid-template-columns: 2fr 64px 1fr 1fr;
   grid-column-gap: 16px;
 
+  font-size: 14px;
+  line-height: 18px;
+
   &__product {
-    flex: 2 2 40%;
   }
 
   &__remove {
@@ -17,15 +19,21 @@
   }
 
   &__amount {
-
     &-input {
       width: 100%;
+      border: 1px solid #eee;
+      border-radius: $radius;
+      padding: 0 10px 0 0;
+      line-height: 18px;
+      text-align: right;
     }
   }
 
   &__price {
+    text-align: right;
   }
 
   &__total {
+    text-align: right;
   }
 }

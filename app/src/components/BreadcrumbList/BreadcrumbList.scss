@@ -2,32 +2,33 @@
 
 .breadcrumb {
   display: block;
+  margin: 16px 0;
 
-  &__link {
-    color: $secondary-font-color;
+  &__item {
+    border: 1px solid $primary-brand-color;
+    color: $primary-brand-color;
     text-decoration: none;
     font-size: 14px;
-    line-height: 24px;
+    line-height: 22px;
     font-weight: 400;
-    white-space: nowrap;
+    padding: 4px 6px;
     margin: 0 0 2px;
 
-    &::after {
-      content: "";
-      width: 10px;
-      height: 10px;
-      display: inline-block;
-      background: url(/right-chevron.svg) no-repeat center;
-      background-size: contain;
-      margin: 0 6px;
+    @media screen and (min-width: $medium-breackpoint) {
+      padding: 4px 12px;
+    }
+
+    &:first-of-type {
+      border-radius: 24px 0 0 24px;
     }
 
     &:last-of-type {
-      &::after {
-        content: "";
-        width: 0;
-        height: 0;
-      }
+      border-radius: 0 24px 24px 0;
     }
+  }
+
+  &--current {
+    color: #fff;
+    background-color: $primary-brand-color;
   }
 }

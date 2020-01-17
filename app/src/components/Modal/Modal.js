@@ -2,12 +2,15 @@ import React from "react";
 import "./Modal.scss";
 
 function Modal(props) {
-  const { mergedArray } = props.jsonData;
-
+  const { newOrder, show } = props;
   return (
-    <div className="modal">
-      <code>{JSON.stringify(mergedArray)}</code>
-      {/* <code>{JSON.stringify(jsonData)}</code> */}
+    <div className={`modal ${show ? 'modal--show' : ''}`}>
+      <h2 className="modal__heading">Datos de la orden:</h2>
+      <div className="modal__content">
+        <pre>
+          {JSON.stringify(newOrder, null, 2)}
+        </pre>
+      </div>
     </div>
   );
 }

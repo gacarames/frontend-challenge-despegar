@@ -21,6 +21,13 @@
 
     @media screen and (min-width: $medium-breackpoint) {
       flex-direction: row;
+
+      .input-form {
+        width: 25%;
+        &:last-child {
+          margin-left: 16px;
+        }
+      }
     }
   }
 }

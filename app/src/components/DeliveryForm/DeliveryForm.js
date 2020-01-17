@@ -26,7 +26,7 @@ function DeliveryForm(props) {
 
   return (
     <div className="delivery-form">
-      <h3 className="delivery-form_heading">Completa tus datos</h3>
+      <h3 className="delivery-form__heading">Completa tus datos:</h3>
       <form className="delivery-form__form">
         <InputForm
           type="text"

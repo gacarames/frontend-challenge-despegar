@@ -1,1 +1,36 @@
-.Modal {}
+@import "../../sass/shared";
+
+.modal {
+  display: none;
+  width: 600px;
+  background: white;
+  padding: 32px;
+  box-shadow: $hover-shadow;
+  border-radius: $radius;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  &--show {
+    display: block;
+  }
+
+  &__heading {
+    color: $primary-brand-color;
+    border-bottom: 1px solid #ededed;
+  }
+
+  &__content {
+    background-color: #eee;
+    padding: 16px;
+    margin: 32px 0;
+  }
+
+  &__close {
+    @extend %button;
+    display: block;
+    margin-left: auto;
+  }
+}

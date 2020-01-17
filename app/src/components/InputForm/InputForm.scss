@@ -9,12 +9,7 @@
   }
 
   @media screen and (min-width: $medium-breackpoint) {
-    width: 25%;
-    margin-bottom: 0;
-
-    &:last-child {
-        padding-left: 16px;
-      }
+    margin-bottom: 16px;
   }
 
   &__label {
@@ -29,8 +24,9 @@
 
   &__input {
     width: 100%;
-    height: 36px;
-    padding: 16px;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 16px;
     border: none;
     border-radius: $radius;
   }

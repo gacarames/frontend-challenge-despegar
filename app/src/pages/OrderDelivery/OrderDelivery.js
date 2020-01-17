@@ -19,6 +19,8 @@ function OrderDelivery() {
 
   const [newOrder, setNewOrder] = useState({})
 
+  const [showModal, setShowModal] = useState(false)
+
   const { id } = useParams();
 
   const { data, loading, error } = useFetch(`${HOST}/api/restaurants/${id}`);
@@ -52,28 +54,36 @@ function OrderDelivery() {
   function handleSubmitData() {
     setNewOrder({
       ...newOrder,
-      user: userDeliveryData,
-      order: mergedArray
+      order: mergedArray,
+      user: userDeliveryData
     })
+    setShowModal(true)
   }
+
+
 
   return (
     <>
-      <Section section="order-creation" styled="card" layout="two-cols">
-        <Column>
+      <Section section="order-delivery" layout="two-cols">
+        <Column styled="card bg-brand-color">
           <DeliveryForm GetFormValues={CallbackFormValues} />
         </Column>
-        <Column>
+        <Column styled="card">
           <DeliveryList delivery={{ mergedArray }} />
         </Column>
       </Section>
-      <Section section="order-creation">
-        <Column>
+      <Section section="navigation">
+        <Column styled="card juatify-end">
           <GoBack />
-          <buttom onClick={handleSubmitData}>Enviar</buttom>
+          <button
+            onClick={handleSubmitData}
+            className="button button--primary"
+          >
+            Enviar Orden
+            </button>
         </Column>
       </Section>
-      <Modal jsonData={{ userDeliveryData }} />
+      <Modal newOrder={newOrder} show={showModal} />
     </>
   );
 }

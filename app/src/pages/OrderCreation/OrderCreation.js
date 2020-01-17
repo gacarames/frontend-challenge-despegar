@@ -48,10 +48,14 @@ function OrderCreation() {
         </Column>
       </Section>
       <Section section="navigation">
-        <Column>
+        <Column styled="card juatify-end">
           <GoBack />
           <Link to={`/order-delivery/${id}`}>
-            <button className="order-creation__button">Continuar</button>
+            <button
+              className="button button--primary"
+            >
+              Continuar
+            </button>
           </Link>
         </Column>
       </Section>

@@ -14,7 +14,7 @@ function DeliveryList(props) {
       <div className="delivery-list">
         <div className="delivery-list__heading">
           <span className="delivery-list__head-col col--product">Producto</span>
-          <span className="delivery-list__head-col col--amount">Cantidad</span>
+          <span className="delivery-list__head-col col--amount">Cant.</span>
           <span className="delivery-list__head-col col--price">Precio</span>
           <span className="delivery-list__head-col col--total">Total</span>
         </div>

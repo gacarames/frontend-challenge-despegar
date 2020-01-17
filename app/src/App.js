@@ -12,30 +12,12 @@ import DeliveryListProvider from './context/DeliveryListProvider'
 
 function App() {
 
-  const stagesList = [
-    {
-      id: "1",
-      name: "Delivery Selection",
-      path: "/"
-    },
-    {
-      id: "2",
-      name: "Order Creation",
-      path: "/order-creation"
-    },
-    {
-      id: "3",
-      name: "Data and delivery",
-      path: "/data-delivery"
-    }
-  ]
-
   return (
     <DeliveryListProvider>
-      <Router /* forceRefresh={true} */>
+      <Router>
         <NavBar>
           <Logo />
-          <BreadcrumbList stages={stagesList} />
+          <BreadcrumbList />
         </NavBar>
         <div className="main">
           <Switch>

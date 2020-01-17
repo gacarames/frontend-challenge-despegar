@@ -1,10 +1,11 @@
 @import "../../sass/shared";
 
 .menu-item {
+  display: grid;
+  grid-template-columns: 2fr 1fr 64px;
+  grid-column-gap: 16px;
   font-size: 14px;
-  display: flex;
   align-items: center;
-  padding: 8px 0;
 
   &__name {
     flex: 2 2 60%;
@@ -15,7 +16,7 @@
   }
 
   &__price {
-    flex: 1 1 25%;
+    text-align: right;
   }
 
   &__add {

@@ -2,7 +2,6 @@ import React from "react";
 
 import { Tabs, Tab, TabPanel, TabList } from "react-web-tabs";
 import "./MenuList.scss";
-/* import "react-web-tabs/dist/react-web-tabs.css"; */
 import MenuItem from "../MenuItem/MenuItem";
 
 function MenuList(props) {
@@ -15,13 +14,16 @@ function MenuList(props) {
 
   return (
     <Tabs
+      className="tabs"
       defaultTab={tabsList[0]}
       onChange={tabId => {
         console.log(tabId);
       }}
       vertical
     >
-      <TabList>
+      <TabList
+        className="tabs__list"
+      >
         {tabsList &&
           tabsList.map((type) => {
             return (
@@ -39,17 +41,20 @@ function MenuList(props) {
         tabsList && tabsList.map(tabPanel => {
           return (
             <TabPanel tabId={tabPanel} key={tabPanel}>
-              {
-                menu
-                  .filter(opt => {
-                    return (opt.category_food === tabPanel)
-                  })
-                  .map(item => {
-                    return (
-                      <MenuItem key={item.id} itemData={item} />
-                    )
-                  })
-              }
+              <div className="tabs__panel">
+                {
+                  menu
+                    .filter(opt => {
+                      return (opt.category_food === tabPanel)
+                    })
+                    .map(item => {
+                      return (
+                        <MenuItem key={item.id} itemData={item} />
+                      )
+                    })
+                }
+              </div>
+
             </TabPanel>
           )
         })

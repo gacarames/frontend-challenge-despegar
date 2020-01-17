@@ -11,14 +11,45 @@
 }
 
 section {
-  padding: 32px 0;
+  padding-top: 16px;
 }
 
 .card {
   background-color: #fff;
   box-shadow: $static-shadow;
 
+  &.bg-brand-color {
+    background-color: $primary-brand-color;
+  }
+
   @media screen and (min-width: $medium-breackpoint) {
     border-radius: $radius;
   }
+}
+
+.button {
+  font-size: 18px;
+  line-height: 22px;
+  padding: 8px 12px;
+  margin-left: 16px;
+  @extend %button;
+
+  &--primary {
+    color: #fff;
+    background: $secondary-brand-color;
+    border: 1px solid $secondary-brand-color;
+  }
+
+  &--primary-outline {
+    font-size: 18px;
+    font-weight: 400;
+    color: $secondary-brand-color;
+    background: #fff;
+    border: 1px solid $secondary-brand-color;
+  }
+}
+
+.juatify-end {
+  display: flex;
+  justify-content: flex-end;
 }
